@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Entity.Music.Comment>
+<h1>Comments</h1>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">
+                    Id
+                </th>
+                <th scope="col">
+                    Name
+                </th>
+                <th scope="col">
+                    Email
+                </th>
+                <th scope="col">
+                    Body
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comment in Model)
+            {
+                <tr>
+                    <th scope="col">
+                        @comment.Id
+                    </th>
+                    <td>
+                        @comment.Name
+                    </td>
+                    <td>
+                        @comment.Email
+                    </td>
+                    <td>
+                        @comment.Body
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

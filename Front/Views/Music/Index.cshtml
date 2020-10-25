@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Entity.Music.Album>
+<h1>Albums</h1>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">
+                    Id
+                </th>
+                <th scope="col">
+                    Title
+                </th>
+                <th scope="col">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var album in Model)
+            {
+                <tr>
+                    <th scope="col">
+                        @album.Id
+                    </th>
+                    <td>
+                        @album.Title
+                    </td>
+                    <td>
+                        @Html.ActionLink(
+                                "See Album", 
+                                "Photos", 
+                                "Music", 
+                                new
+                                {
+                                    id = album.Id
+                                },
+                                new
+                                {
+                                    @class = "btn btn-primary"
+                                }
+                        )
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

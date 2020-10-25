@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Entity.Music.Photo>
+<h1>Albums / Photos</h1>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">
+                    Id
+                </th>
+                <th scope="col">
+                    Title
+                </th>
+                <th scope="col">
+                    Thumbnail
+                </th>
+                <th scope="col">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var photo in Model)
+            {
+            <tr>
+                <th scope="col">
+                    @photo.Id
+                </th>
+                <td>
+                    @photo.Title
+                </td>
+                <td>
+                    <a href="@photo.Url">
+                        <img src="@photo.ThumbnailUrl" />
+                    </a>
+                </td>
+                <td>
+                    <input type="button"
+                           id="btnSeeComments_@photo.Id"
+                           class="btn btn-primary btnSeeComments"
+                           value="See Comments" />
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br /><br />
+<div id="comments"></div>
